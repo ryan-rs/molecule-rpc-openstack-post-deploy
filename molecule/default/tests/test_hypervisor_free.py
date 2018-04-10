@@ -8,6 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('dashboard_hosts')
 
 
+# @pytest.mark.test_id('a6cfdd2a-01c3-4aba-b809-5f22e3acd865')
 @pytest.mark.testinfra_hosts(testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('nova_conductor'))
 def test_get_nova_allocation_ratios(host):
@@ -40,6 +41,7 @@ def test_get_nova_allocation_ratios(host):
     assert disk_res.rc == 0
 
 
+@pytest.mark.test_id('48ef4522-c188-4fb9-9c3c-6813bbd0609c')
 @pytest.mark.jira('asc-157')
 def test_hypervisor_free(host):
     """Validate the resource levels for hypervisor"""
