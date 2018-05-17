@@ -68,7 +68,9 @@ def test_hypervisor_vms(host):
                 server = json.loads(res.stdout)
                 server_list.append(server)
 
+    # sleep to allow servers to boot
     time.sleep(60)
+
     for server in server_list:
         cmd = "{} server show {} -f json'".format(os_pre, server['id'])
         res = host.run(cmd)
