@@ -11,6 +11,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.jira('asc-157')
+@pytest.mark.skip('hmm')
 def test_instance_per_network_per_hypervisor(host):
     """
     Per network, create instance, ping, tear-down.
