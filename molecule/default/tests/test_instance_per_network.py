@@ -10,6 +10,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('infra1')
 
 
+@pytest.mark.test_id('4a549b5e-645a-11e8-ab27-6c96cfdb252f')
 @pytest.mark.jira('asc-157')
 @pytest.mark.skip('hmm')
 def test_instance_per_network_per_hypervisor(host):
@@ -29,7 +30,7 @@ def test_instance_per_network_per_hypervisor(host):
 
     # add ping rule to security group
     cmd = "{} security group rule create --proto icmp {} -f json'".format(os_pre,
-    security_group)
+                                                                          security_group)
     res = host.run(cmd)
     assert res.rc == 0
 
